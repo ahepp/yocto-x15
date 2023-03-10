@@ -1,10 +1,12 @@
 # x15
 
-A containerized yocto project intended for use with the [BeagleBoard-X15](https://beagleboard.org/x15).
+An example project to build Yocto for the BeagleBoard X15.
 
 ## To build
 
     $ docker build . -t $X15_IMAGE
     $ docker run -it -v $(pwd):/ws $X15_IMAGE
-    > ./scripts/fetch.sh          # Fetch layers
-    > ./scripts/build.sh          # Build core-image-minimal
+    > ./setup.sh
+    > . layers/poky/oe-init-build-env
+    > bitbake core-image-minimal
+
